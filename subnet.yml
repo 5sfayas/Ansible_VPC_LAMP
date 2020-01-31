@@ -19,3 +19,5 @@
 
 # I am gonna create subnet group to have an database cluster
 # create security group for Stack
+
+# now create ec2 intances for app and web

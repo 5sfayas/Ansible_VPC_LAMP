@@ -1,0 +1,17 @@
+---
+# tasks file for ec2
+- name: Creating {{instance_name}} EC2 instance
+  ec2:
+    region: "{{region}}"
+    state: present
+    key_name: "{{key_pair1}}"
+    instance_tags: { "Name":"{{instance_name}}" }
+    image: "{{ec2_image}}"
+    instance_type: "{{ec2_type}}"
+    group: "{{sg}}"
+    vpc_subnet_id: "{{ec2_subnet_id}}"
+    assign_public_ip: "{{public_ip}}"
+    wait: true
+  register: ec2_instance
+- set_fact:
+    vpc_info: "{{ vpc_info | combine({ ec2_name: ec2_instance}) }}"
