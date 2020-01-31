@@ -13,13 +13,5 @@
     - set_fact:
         cidr_block: "{{cidr_block}}"
         vpc_name: "{{vpc_name}}"
-    - name: Creating VPC
-      ec2_vpc_net:
-        name: "{{vpc_name}}"
-        region: "{{default_region}}"
-        state: present
-        cidr_block: "{{cidr_block}}"
-        tenancy: default
-        dns_hostnames: yes
-        dns_support: yes
-      register: vpc
+  roles:
+    - vpc
