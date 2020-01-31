@@ -2,7 +2,7 @@
 # tasks file for igw
 - name: creating internet gateway
   ec2_vpc_igw:
-    region: "{{region}}"
+    region: "{{default_region}}"
     vpc_id: "{{ vpc.vpc.id }}"
     state: present
     tags:
