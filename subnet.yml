@@ -5,3 +5,9 @@
 # so, I gonna create two subnets for each LAMP Stack
 - import_playbook: webserver1_subnet.yml
 - import_playbook: webserver2_subnet.yml
+- import_playbook: app1_subnet.yml
+- import_playbook: app2_subnet.yml
+- import_playbook: db1_subnet.yml
+- import_playbook: db2_subnet.yml
+- import_playbook: lb1_subnet.yml
+- import_playbook: lb2_subnet.yml
