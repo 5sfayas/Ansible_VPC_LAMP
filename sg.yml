@@ -1,0 +1,4 @@
+---
+- import_playbook : sg_web.yml
+- import_playbook : app_sg.yml
+- import_playbook : db_sg.yml

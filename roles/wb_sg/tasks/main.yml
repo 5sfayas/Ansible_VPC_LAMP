@@ -1,0 +1,17 @@
+---
+# tasks file for wb_sg
+- name: Creating web security group
+  ec2_group:
+    name: "{{wb_sg_name}}"
+    tags: { "Name":"{{wb_sg_name}}" }
+    description: "{{wb_sg_desc}}"
+    vpc_id: "{{ vpc.vpc.id }}"
+    region: "{{default_region}}"
+    rules:
+      - proto: TCP
+        ports:
+        - 80
+        - 443
+        cidr_ip: 0.0.0.0/0
+        rule_desc: Allow HTTP and HTTPS
+  register: wb_sg
