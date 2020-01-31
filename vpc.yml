@@ -1,0 +1,25 @@
+---
+- name: create VPC
+  hosts: control
+  gather_facts: flase
+  vars_prompt:
+    - name: "cidr_block"
+      prompt: "Enter the CIDR block you want"
+      private: no
+    - name: "vpc_name"
+      prompt: "Enter the name of the VPC"
+      private: no
+  tasks:
+    - set_fact:
+        cidr_block: "{{cidr_block}}"
+        vpc_name: "{{vpc_name}}"
+    - name: Creating VPC
+      ec2_vpc_net:
+        name: "{{vpc_name}}"
+        region: "{{default_region}}"
+        state: present
+        cidr_block: "{{cidr_block}}"
+        tenancy: default
+        dns_hostnames: yes
+        dns_support: yes
+      register: vpc
