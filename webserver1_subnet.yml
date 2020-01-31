@@ -1,0 +1,30 @@
+---
+- name: create subnet for webserver1
+  hosts: control
+  vars_prompt:
+    - name: "cidr_block_subnet1"
+      prompt: "Enter the CIDR block you want for web server 1 subnet"
+      private: no
+    - name: "subnet_name1"
+      prompt: "Enter the name of the web server 1 subnet"
+      private: no
+    - name: "subnet_az1"
+      prompt: "Enter the availability zone of web server 1 subnet"
+      private: no
+
+  tasks:
+    set_fact:
+      cidr_block_subnet: "{{cidr_block_subnet1}}"
+      subnet_name: "{{subnet_name1}}"
+      az: "{{subnet_az1}}"
+# this can be use as common roles for each LAMP stack
+    - name: creating webserver subnets "{{subnet_name}}"
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: "{{ vpc.vpc.id }}"
+        region: "{{default_region}}"
+        az: "{{subnet_az}}"
+        cidr: "{{cidr_block}}"
+        resource_tags:
+          Name: "{{subnet_name}}"
+  register: output

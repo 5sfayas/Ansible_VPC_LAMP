@@ -1,0 +1,7 @@
+---
+# in my idea
+# I have two Availability zone
+# In each AZ, I going to deploy 2 webserver, 2 application and 2 lb server
+# so, I gonna create two subnets for each LAMP Stack
+- import_playbook: webserver1_subnet.yml
+- import_playbook: webserver2_subnet.yml
