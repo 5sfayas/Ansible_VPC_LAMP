@@ -1,0 +1,15 @@
+---
+- name: create Internet gateway
+  hosts: control
+  gather_facts: false
+  vars_prompt:
+    - name: "igw_name"
+      prompt: enter the internet gatway name
+      private: No
+
+  tasks:
+    set_fact:
+      igw_name: "{{igw_name}}"
+
+  roles:
+    - igw

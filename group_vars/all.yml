@@ -1,2 +1,7 @@
 ---
-  
+# my secure variables
+# if you don't pass it here it gets from environmental variable
+aws_access_key: "xxx"
+aws_secret_key: "yyy"
+#region=us-east-1
+default_region: us-east-1
