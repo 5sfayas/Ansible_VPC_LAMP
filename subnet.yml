@@ -16,3 +16,5 @@
 # connect all subnets to routing table
 # each stack group I added routing table and association
 # 2 webserver to web routing table likewise
+
+# I am gonna create subnet group to have an database cluster

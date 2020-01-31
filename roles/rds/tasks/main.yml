@@ -1,0 +1,18 @@
+---
+# tasks file for rds
+- name: Creating RDS instance
+  rds:
+    command: create
+    instance_name: "{{db_name}}"
+    db_engine: "{{db_instance}}"
+    size: "{{db_size}}"
+    region: "{{default_region}}"
+    publicly_accessible: no
+    instance_type: "{{instance_type}}"
+    username: "{{user_name}}"
+    password: "{{db_password}}"
+    multi_zone: yes
+    subnet: "{{rds_group_name}}"
+
+    tags:
+      Environment: demo

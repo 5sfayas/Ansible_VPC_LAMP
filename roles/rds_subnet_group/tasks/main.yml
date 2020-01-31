@@ -1,0 +1,11 @@
+---
+# tasks file for rds_subnet_group
+- name: Creating RDS Subnet groups
+  rds_subnet_group:
+    state: present
+    name: "{{rds_group_name}}"
+    description: "{{rds_group_description}}"
+    region: "{{region}}"
+    subnets:
+      - "{{ info.db1_subnet.subnet.id }}"
+      - "{{ info.db2_subnet.subnet.id }}"
