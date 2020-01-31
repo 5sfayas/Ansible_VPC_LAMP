@@ -1,0 +1,22 @@
+---
+- name: create subnet for lb1
+  hosts: control
+  vars_prompt:
+    - name: "cidr_block_subnet7"
+      prompt: "Enter the CIDR block you want for lb1 subnet"
+      private: no
+    - name: "subnet_name7"
+      prompt: "Enter the name of the lb1 subnet"
+      private: no
+    - name: "subnet_az7"
+      prompt: "Enter the availability zone of lb1 subnet"
+      private: no
+
+  tasks:
+    - name: creating lb1
+      set_fact:
+        cidr_block_subnet: "{{cidr_block_subnet7}}"
+        subnet_name: "{{subnet_name7}}"
+        az: "{{subnet_az7}}"
+  roles:
+    - subnet

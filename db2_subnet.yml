@@ -1,0 +1,22 @@
+---
+- name: create subnet for db2
+  hosts: control
+  vars_prompt:
+    - name: "cidr_block_subnet6"
+      prompt: "Enter the CIDR block you want for db2 subnet"
+      private: no
+    - name: "subnet_name6"
+      prompt: "Enter the name of the db2 subnet"
+      private: no
+    - name: "subnet_az6"
+      prompt: "Enter the availability zone of db2 subnet"
+      private: no
+
+  tasks:
+    - name: creating db2
+      set_fact:
+        cidr_block_subnet: "{{cidr_block_subnet}}"
+        subnet_name: "{{subnet_name6}}"
+        az: "{{subnet_az6}}"
+  roles:
+    - subnet

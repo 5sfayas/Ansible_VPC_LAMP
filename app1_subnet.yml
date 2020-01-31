@@ -1,0 +1,22 @@
+---
+- name: create subnet for app1
+  hosts: control
+  vars_prompt:
+    - name: "cidr_block_subnet3"
+      prompt: "Enter the CIDR block you want for app1 subnet"
+      private: no
+    - name: "subnet_name3"
+      prompt: "Enter the name of the app1 subnet"
+      private: no
+    - name: "subnet_az3"
+      prompt: "Enter the availability zone of app1 subnet"
+      private: no
+
+  tasks:
+    - name: creating app1
+      set_fact:
+        cidr_block_subnet: "{{cidr_block_subnet3}}"
+        subnet_name: "{{subnet_name3}"
+        az: "{{subnet_az3}}"
+  roles:
+    - subnet
