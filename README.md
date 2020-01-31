@@ -20,7 +20,7 @@ The main playbook I have created is "arch.yml" which calls all other play-books 
 
 7) rds- This role is used to create a RDS instance. The concerned playbook accepts inputs from the user to determine the type of RDS, instance, size, username etc which passes the inputs to the role so that it can configure it accordingly.
 
-8) security_group- This role is used to create the security group for the different subnets. The different roles used to create security groups are app_security_group, db_security_group and wb_security_group. The playbooks associated with each role accepts the required inputs and passes it to the concerned role.
+8) security_group- The different roles used to create security groups are app_sg, db_sg and wb_sg. The playbooks associated with each role accepts the required inputs and passes it to the concerned role.
 
 9) ec2 - This role is used to create EC2 instances for the web and application layer. As we have seen in the case of "subnet" roles, the different playbooks accept inputs from the user and then they call the "ec2" role which configures the required instance in the VPC.
 
@@ -32,6 +32,9 @@ The roles invoke the AWS modules in Ansible to carry out their respective tasks.
 Open the terminal and change the path to where you have downloaded the folder.
 Then run the following command in the terminal:
 > $ anisble_playbook arch.yml
+
+## Running the playbook
+Please refer my LAMP_Stack_Ansible to install LAMP Stack
 
 ## Requirements
 You must have AWS CLI, latest Python module and boto3 installed before running this playbook else it will result in an error saying you need one of these installed.
