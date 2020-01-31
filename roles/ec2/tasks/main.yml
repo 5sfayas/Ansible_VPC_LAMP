@@ -2,7 +2,7 @@
 # tasks file for ec2
 - name: Creating {{instance_name}} EC2 instance
   ec2:
-    region: "{{region}}"
+    region: "{{default_region}}"
     state: present
     key_name: "{{key_pair1}}"
     instance_tags: { "Name":"{{instance_name}}" }
@@ -14,4 +14,4 @@
     wait: true
   register: ec2_instance
 - set_fact:
-    vpc_info: "{{ vpc_info | combine({ ec2_name: ec2_instance}) }}"
+    vpc_info: "{{ info | combine({ ec2_name: ec2_instance}) }}"
