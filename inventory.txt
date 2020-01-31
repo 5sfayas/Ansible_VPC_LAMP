@@ -1,0 +1,5 @@
+[vm1]
+vm.com
+
+[control]
+localhost ansible_connection=local
