@@ -17,7 +17,7 @@ register: output
 # then luanch instanes on specific subnets
 - name: get subnetid of particular Stack
   set_fact:
-    subnetid: ""{{ subnetid | combine({subnetinfo: output.subnets.id}) }}"
+    info: ""{{ info | combine({subnetinfo: output}) }}"
 
 # subnetinfo is dynamic variable and it is passed with each stack subnet yml
 # and I am overwriting output

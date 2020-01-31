@@ -24,4 +24,4 @@
 
     - name:  print app1 output
       debug:
-        var: subnetid
+        var: info

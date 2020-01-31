@@ -24,4 +24,4 @@
 
     - name:  print db2 output
       debug:
-        var: subnetid
+        var: info

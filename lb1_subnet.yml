@@ -24,4 +24,4 @@
 
     - name:  print lb1 output
       debug:
-        var: subnetid
+        var: info

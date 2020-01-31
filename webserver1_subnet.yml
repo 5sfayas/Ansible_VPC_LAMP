@@ -14,7 +14,7 @@
 
   tasks:
     - set_fact:
-        subnetid: {}
+        info: {}
 
     - name: creating webserver1
       include roles:
@@ -27,4 +27,4 @@
 
     - name:  print webserver1 output
       debug:
-        var: subnetid
+        var: info

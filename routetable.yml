@@ -1,0 +1,5 @@
+---
+- import_playbook: web_routetabel.yml
+- import_playbook: app_routetabel.yml
+- import_playbook: db_routetabel.yml
+- import_playbook: lb_routetabel.yml

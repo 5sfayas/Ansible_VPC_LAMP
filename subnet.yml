@@ -13,3 +13,6 @@
 - import_playbook: lb2_subnet.yml
 
 # next I am gonna create nat to connect private instances
+# connect all subnets to routing table
+# each stack group I added routing table and association
+# 2 webserver to web routing table likewise

@@ -1,0 +1,17 @@
+---
+# tasks file for routetable
+- name: Creating {{rt_name}} route table
+  ec2_vpc_route_table:
+      vpc_id: "{{ vpc.vpc.id }}"
+      region: "{{region}}"
+      tags:
+       Name: "{{rt_name}}"
+      subnets:
+        - "{{ subnet1_id }}"
+        - "{{ subnet2_id }}"
+      routes:
+      - dest: "{{destination}}"
+        gateway_id: "{{ gateway_id }}"
+  register: routetable_info
+- set_fact:
+    info: "{{ info | combine({ rt_name: routetable_info}) }}"
