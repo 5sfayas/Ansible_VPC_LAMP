@@ -21,3 +21,5 @@
 # create security group for Stack
 
 # now create ec2 intances for app and web
+# create elb target group to reside instances
+# here I am using application elb
