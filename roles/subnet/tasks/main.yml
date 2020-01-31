@@ -1,7 +1,7 @@
 ---
 # tasks file for subnet
 # this can be use as common roles for each LAMP stack
-- name: creating webserver subnets "{{subnet_name}}"
+- name: creating subnets "{{subnet_name}}"
     ec2_vpc_subnet:
       state: present
       vpc_id: "{{ vpc.vpc.id }}"

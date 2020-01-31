@@ -13,9 +13,10 @@
       private: no
 
   tasks:
-    set_fact:
-      cidr_block_subnet: "{{cidr_block_subnet1}}"
-      subnet_name: "{{subnet_name1}}"
-      az: "{{subnet_az1}}"
+    - name: creating webserver1
+      set_fact:
+        cidr_block_subnet: "{{cidr_block_subnet1}}"
+        subnet_name: "{{subnet_name1}}"
+        az: "{{subnet_az1}}"
   roles:
     - subnet
