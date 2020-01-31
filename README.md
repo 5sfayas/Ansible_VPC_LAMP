@@ -33,7 +33,7 @@ Open the terminal and change the path to where you have downloaded the folder.
 Then run the following command in the terminal:
 > $ anisble_playbook arch.yml
 
-## Running the playbook
+## configure LAMP Stack
 Please refer my LAMP_Stack_Ansible to install LAMP Stack
 
 ## Requirements
