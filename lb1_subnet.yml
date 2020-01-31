@@ -14,9 +14,14 @@
 
   tasks:
     - name: creating lb1
+      include roles:
+        name: ./roles/subnet
       set_fact:
         cidr_block_subnet: "{{cidr_block_subnet7}}"
         subnet_name: "{{subnet_name7}}"
         az: "{{subnet_az7}}"
-  roles:
-    - subnet
+        subnetinfo: lb1_subnet
+
+    - name:  print lb1 output
+      debug:
+        var: subnetid

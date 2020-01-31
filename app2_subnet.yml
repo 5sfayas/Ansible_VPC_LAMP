@@ -14,9 +14,14 @@
 
   tasks:
     - name: creating app2
+      include roles:
+        name: ./roles/subnet
       set_fact:
         cidr_block_subnet: "{{cidr_block_subnet4}}"
         subnet_name: "{{subnet_name4}"
         az: "{{subnet_az4}}"
-  roles:
-    - subnet
+        subnetinfo: app1_subnet
+
+    - name:  print app2 output
+      debug:
+        var: subnetid

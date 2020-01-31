@@ -14,9 +14,14 @@
 
   tasks:
     - name: creating db2
+      include roles:
+        name: ./roles/subnet
       set_fact:
         cidr_block_subnet: "{{cidr_block_subnet}}"
         subnet_name: "{{subnet_name6}}"
         az: "{{subnet_az6}}"
-  roles:
-    - subnet
+        subnetinfo: db2_subnet
+
+    - name:  print db2 output
+      debug:
+        var: subnetid

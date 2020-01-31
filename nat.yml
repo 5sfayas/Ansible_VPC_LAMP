@@ -1,0 +1,6 @@
+---
+- name: create nat
+  hosts: control
+  gather_facts: false
+  roles:
+    - nat

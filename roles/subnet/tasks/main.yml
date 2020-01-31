@@ -11,3 +11,13 @@
       resource_tags:
         Name: "{{subnet_name}}"
 register: output
+# I want store each Subnet ID for Each stack
+# I found combined jina function which replace variable value
+# if so, what if I combined this output to a variable of stack
+# then luanch instanes on specific subnets
+- name: get subnetid of particular Stack
+  set_fact:
+    subnetid: ""{{ subnetid | combine({subnetinfo: output.subnets.id}) }}"
+
+# subnetinfo is dynamic variable and it is passed with each stack subnet yml
+# and I am overwriting output

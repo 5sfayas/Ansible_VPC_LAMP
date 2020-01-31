@@ -14,9 +14,14 @@
 
   tasks:
     - name: creating webserver2
+      include roles:
+        name: ./roles/subnet
       set_fact:
         cidr_block_subnet: "{{cidr_block_subnet2}}"
         subnet_name: "{{subnet_name2}}"
         az: "{{subnet_az2}}"
-  roles:
-    - subnet
+        subnetinfo: wb1_subnet
+
+    - name:  print webserver2 output
+      debug:
+        var: subnetid

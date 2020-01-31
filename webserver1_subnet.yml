@@ -13,10 +13,18 @@
       private: no
 
   tasks:
+    - set_fact:
+        subnetid: {}
+
     - name: creating webserver1
-      set_fact:
+      include roles:
+        name: ./roles/subnet
+      vars:
         cidr_block_subnet: "{{cidr_block_subnet1}}"
         subnet_name: "{{subnet_name1}}"
         az: "{{subnet_az1}}"
-  roles:
-    - subnet
+        subnetinfo: wb1_subnet
+
+    - name:  print webserver1 output
+      debug:
+        var: subnetid

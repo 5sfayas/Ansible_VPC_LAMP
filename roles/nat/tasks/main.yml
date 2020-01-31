@@ -1,0 +1,18 @@
+---
+# tasks file for nat
+# one main issue is how to create NAT for specific subnets
+# I want to get subnet id of lb1 instances
+# I used common role for subnets and I need to extract one of subnets thing FAYAS
+
+# what if get an output of each subnets
+# Note I am using set face variable which is availble for only the host and
+#which also help me to store dynamic values
+# I found ec2_vpc_subnet_facts to find ID
+- name: Create new NAT gateway
+  ec2_vpc_nat_gateway:
+    state: present
+    subnet_id: "{{subnetinfo.lb1_subnet.id}}"
+    wait: yes
+    region: "{{default_region}}"
+    if_exist_do_not_create: true
+  register: new_nat_gateway
